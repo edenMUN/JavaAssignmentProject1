@@ -2,9 +2,10 @@ package main_package;
 
 import currency.*;
 
-import java.io.FileWriter;
+import java.io.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainCal {
@@ -14,6 +15,7 @@ public class MainCal {
     }
 
     public static ArrayList<Double> userresultes = new ArrayList<Double>();
+    List<List<String>> resultConversionFlow = new ArrayList<List<String>>();
 
 
     //    user input USD--ILS or ILD--USD
@@ -40,58 +42,53 @@ public class MainCal {
         Scanner scanner2 = new Scanner(System.in);
         System.out.println("Please enter an amount to convert");
         double useramount = scanner2.nextDouble();
-        result(userchoice, useramount);
+        resultofuser(userchoice, useramount);
 
     }
 
     //  show the user the result
-    private static void result(int userchoice, double useramount) throws IOException {
-        double resulteuser = 0;
+    private static void resultofuser(int userchoice, double useramount) throws IOException {
+        double resultuser = 0;
+        String conversionflow = null;
 
         if (userchoice == 1) {
             CoinFactory CoinFactory = new CoinFactory();
-//            Coin usercoin = CoinFactory.getCoinInstance(ILS);
             Coin usercoin = currency.CoinFactory.getCoinInstance(Coins.ILS);
-            resulteuser = new ILS().calculate(useramount);
-            System.out.println(resulteuser);
+            resultuser = new ILS().calculate(useramount);
+            conversionflow = new ILS().conversion();
         }
         if (userchoice == 2) {
             CoinFactory CoinFactory = new CoinFactory();
             Coin usercoin = currency.CoinFactory.getCoinInstance(Coins.USD);
-            resulteuser = new USD().calculate(useramount);
-            System.out.println(resulteuser);
+            resultuser = new USD().calculate(useramount);
+            conversionflow = new USD().conversion();
         }
 
-//        ArrayList<Double> userresultes = new ArrayList<Double>();
-        userresultes.add(resulteuser);
+        userresultes.add(resultuser);
         System.out.println(userresultes);
-//        for (double i = 1; i > userresultes.size(); i++){
-//
-//        }
 
         startover();
 
     }
 
-    //  Ask the user if they want to stop or continue the calculation
+    //  Ask the user if they want to stop or continue the calculation amd write to a file
     public static void startover() throws IOException {
         System.out.println("Do you want to star over?" + "\n" + "if you do press Y, otherwise press N");
         Scanner scanner3 = new Scanner(System.in);
         String userchoice = scanner3.next();
         if (userchoice.equalsIgnoreCase("Y")) {
             selectedchoice();
-        } else {
+        } else if (userchoice.equalsIgnoreCase("N")){
             System.out.println("Thanks for using our currency converter");
+        } else {
+            System.out.println("Invalid Choice, please try again");
+            startover();
         }
 
-        FileWriter writer = new FileWriter("output1.txt");
+        FileWriter writer = new FileWriter("C:\\Users\\edenmm\\Desktop\\output1.txt");
         for(double str: userresultes) {
             writer.write(str + System.lineSeparator());
         }
         writer.close();
-
-
     }
-
-
 }

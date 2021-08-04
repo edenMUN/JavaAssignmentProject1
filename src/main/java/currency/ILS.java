@@ -3,6 +3,11 @@ package currency;
 public class ILS extends Coin implements java.io.Serializable{
 
     private final double ILSvalue = 0.28;
+    private final String ILSconversion = "USD to ILS";
+
+    public String conversion(){
+        return ILSconversion;
+    }
 
     @Override
     public double getValue() {
