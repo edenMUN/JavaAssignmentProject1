@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"currency"},{"l":"main_package"}];updateSearchResults();

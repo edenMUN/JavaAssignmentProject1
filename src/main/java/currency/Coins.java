@@ -1,5 +1,7 @@
 package currency;
-//the declaration of the authorized currencies
+/** This enum is to declare the authorized currencies.
+ *
+ */
 public enum Coins {
     ILS,
     USD

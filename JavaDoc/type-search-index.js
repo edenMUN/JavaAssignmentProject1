@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"currency","l":"Coin"},{"p":"currency","l":"CoinFactory"},{"p":"currency","l":"Coins"},{"p":"currency","l":"ICalcualte"},{"p":"currency","l":"ILS"},{"p":"main_package","l":"MainCal"},{"p":"main_package","l":"unitTest"},{"p":"currency","l":"USD"}];updateSearchResults();

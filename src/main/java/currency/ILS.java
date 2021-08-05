@@ -1,5 +1,8 @@
 package currency;
 
+/**
+ * This class is for implementation the methods of ICalcualte and Coin.
+ */
 public class ILS extends Coin implements java.io.Serializable{
 
     private final double ILSvalue = 0.28;

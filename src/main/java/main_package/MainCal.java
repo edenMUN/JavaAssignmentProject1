@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The class is for determining the requests from the user and showing the results.
+ */
 public class MainCal {
     public static void main(String[] args) throws IOException {
         System.out.println("Welcome to currency converter");
@@ -16,7 +19,6 @@ public class MainCal {
 
     public static ArrayList<Double> userresultes = new ArrayList<Double>();
     List<List<String>> resultConversionFlow = new ArrayList<List<String>>();
-
 
     //    user input USD--ILS or ILD--USD
     public static void selectedchoice() throws IOException {

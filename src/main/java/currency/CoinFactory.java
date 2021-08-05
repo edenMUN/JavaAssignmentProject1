@@ -1,7 +1,15 @@
 package currency;
 
+/**
+ * This class is for manipulation currency initializing.
+ */
 public class CoinFactory {
-//method the creates new objects
+
+    /**
+     * This method is to initialize the objects.
+     * @param coin your choice of which currency to to initialize.
+     * @return the new object.
+     */
     public static Coin getCoinInstance(Coins coin) {
         switch (coin) {
             case ILS -> {
